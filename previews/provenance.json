@@ -1,0 +1,122 @@
+[
+  {
+    "name": "screen_n0_系统总览",
+    "prompt": "Manufacturing Equipment Management System - System homepage overview dashboard",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:10:00.000Z",
+    "ok": true,
+    "output": "previews/screen_n0_系统总览.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n1_设备台账管理",
+    "prompt": "Manufacturing Equipment Management System - Equipment asset management page with data table and filters",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:10:30.000Z",
+    "ok": true,
+    "output": "previews/screen_n1_设备台账管理.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n5_设备生命周期管理",
+    "prompt": "Manufacturing Equipment Management System - Equipment lifecycle timeline and state machine page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:11:00.000Z",
+    "ok": true,
+    "output": "previews/screen_n5_设备生命周期管理.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n8_点巡检管理",
+    "prompt": "Manufacturing Equipment Management System - Mobile inspection checklist page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:11:30.000Z",
+    "ok": true,
+    "output": "previews/screen_n8_点巡检管理.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n11_故障工单管理",
+    "prompt": "Manufacturing Equipment Management System - Work order kanban board page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:12:00.000Z",
+    "ok": true,
+    "output": "previews/screen_n11_故障工单管理.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n14_IoT数据采集",
+    "prompt": "Manufacturing Equipment Management System - IoT data collection and protocol monitoring page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:12:30.000Z",
+    "ok": true,
+    "output": "previews/screen_n14_IoT数据采集.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n17_OEE分析",
+    "prompt": "Manufacturing Equipment Management System - OEE/MTTR/MTBF analysis dashboard page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:13:00.000Z",
+    "ok": true,
+    "output": "previews/screen_n17_OEE分析.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n20_备件管理",
+    "prompt": "Manufacturing Equipment Management System - Spare parts inventory management page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:13:30.000Z",
+    "ok": true,
+    "output": "previews/screen_n20_备件管理.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n23_大屏管理",
+    "prompt": "Manufacturing Equipment Management System - Factory floor large screen monitoring dashboard (dark theme)",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:14:00.000Z",
+    "ok": true,
+    "output": "previews/screen_n23_大屏管理.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n26_AI辅助决策",
+    "prompt": "Manufacturing Equipment Management System - AI predictive maintenance and decision support page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:14:30.000Z",
+    "ok": true,
+    "output": "previews/screen_n26_AI辅助决策.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n29_权限管理",
+    "prompt": "Manufacturing Equipment Management System - RBAC permission management and audit log page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:15:00.000Z",
+    "ok": true,
+    "output": "previews/screen_n29_权限管理.jpg",
+    "error": null
+  },
+  {
+    "name": "screen_n32_报表管理",
+    "prompt": "Manufacturing Equipment Management System - Report management center page",
+    "model": "SOLO-GenerateImage",
+    "label": "预览·未验证 / preview-unverified",
+    "ts": "2026-06-04T16:15:30.000Z",
+    "ok": true,
+    "output": "previews/screen_n32_报表管理.jpg",
+    "error": null
+  }
+]

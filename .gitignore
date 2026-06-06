@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+client/dist/
+
+# Database
+server/data/*.sqlite
+server/data/*.sqlite-journal
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# WhyBuddy artifacts (not needed for deployment)
+checks_ledger.json
+clarified_brief.json
+decision_mode.json
+handoff_manifest.json
+image_config.json
+open_items.json
+project_context.json
+route_options.json
+spec_tree.json
+traceability_matrix.json

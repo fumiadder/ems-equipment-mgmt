@@ -1,0 +1,54 @@
+graph TB
+    subgraph 前端层
+        A1[管理后台<br/>React + Ant Design]
+        A2[移动端 PWA<br/>离线巡检]
+        A3[大屏看板<br/>WebSocket 实时推送]
+        A4[报表中心<br/>PDF/Excel 导出]
+    end
+
+    subgraph API网关
+        B1[Nginx<br/>负载均衡/SSL/限流/鉴权]
+    end
+
+    subgraph 后端服务
+        C1[设备服务<br/>台账/生命周期]
+        C2[工单服务<br/>故障工单/自动派单]
+        C3[备件服务<br/>出入库/预警]
+        C4[巡检服务<br/>计划/执行/异常]
+        C5[报表服务<br/>模板/导出/推送]
+        C6[IoT采集服务<br/>协议适配/数据管道]
+        C7[AI推理服务<br/>FastAPI/故障预测]
+        C8[权限服务<br/>RBAC/审计]
+        C9[通知服务<br/>站内/邮件/WebSocket]
+    end
+
+    subgraph 数据层
+        D1[(PostgreSQL<br/>业务数据)]
+        D2[(TDengine<br/>时序数据)]
+        D3[(Redis<br/>缓存/队列)]
+        D4[(MinIO<br/>文件存储)]
+    end
+
+    subgraph IoT采集层
+        E1[Modbus适配器]
+        E2[OPC-UA适配器]
+        E3[MQTT适配器]
+    end
+
+    subgraph 设备层
+        F1[PLC]
+        F2[传感器]
+        F3[SCADA]
+    end
+
+    A1 & A2 & A3 & A4 --> B1
+    B1 --> C1 & C2 & C3 & C4 & C5 & C6 & C8 & C9
+    C1 & C2 & C3 & C4 & C5 & C8 --> D1
+    C6 --> D2
+    C1 & C8 & C9 --> D3
+    C1 & C4 --> D4
+    C6 --> E1 & E2 & E3
+    E1 & E2 & E3 --> F1 & F2 & F3
+    C9 --> A1 & A3
+    C7 --> D1
+    C7 --> D2

@@ -1,0 +1,280 @@
+/* ═══════════════════════════════════════════════════════════════
+   EMS 智能设备管理系统 — 主布局样式
+   Industrial Tech 美学
+   ═══════════════════════════════════════════════════════════════ */
+
+.main-layout {
+  min-height: 100vh;
+}
+
+/* ── 侧边栏 ── */
+.main-sider {
+  background: var(--ems-sidebar-bg) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-sider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(14, 165, 233, 0.3) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Logo 区域 */
+.main-sider .logo {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ems-font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ems-sidebar-text-active);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, transparent 100%);
+}
+
+.main-sider .logo::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
+  animation: logo-pulse 8s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.main-sider .ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 菜单样式覆盖 */
+.main-sider .ant-menu {
+  background: transparent !important;
+  border-right: none !important;
+  padding: 8px 0;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-sider .ant-menu-item {
+  height: 40px !important;
+  line-height: 40px !important;
+  margin: 2px 8px !important;
+  border-radius: 8px !important;
+  color: var(--ems-sidebar-text) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: all var(--ems-transition-fast) !important;
+  position: relative;
+}
+
+.main-sider .ant-menu-item:hover {
+  background: var(--ems-sidebar-hover) !important;
+  color: var(--ems-sidebar-text-active) !important;
+}
+
+.main-sider .ant-menu-item-selected {
+  background: rgba(14, 165, 233, 0.15) !important;
+  color: var(--ems-primary-light) !important;
+}
+
+.main-sider .ant-menu-item-selected::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: var(--ems-primary);
+  border-radius: 0 3px 3px 0;
+}
+
+.main-sider .ant-menu-item-selected .anticon {
+  color: var(--ems-primary-light) !important;
+}
+
+.main-sider .ant-menu-sub {
+  background: transparent !important;
+}
+
+.main-sider .ant-menu-submenu-title {
+  height: 40px !important;
+  line-height: 40px !important;
+  margin: 2px 8px !important;
+  border-radius: 8px !important;
+  color: var(--ems-sidebar-text) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: all var(--ems-transition-fast) !important;
+}
+
+.main-sider .ant-menu-submenu-title:hover {
+  background: var(--ems-sidebar-hover) !important;
+  color: var(--ems-sidebar-text-active) !important;
+}
+
+.main-sider .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  color: var(--ems-primary-light) !important;
+}
+
+.main-sider .ant-menu-sub .ant-menu-item {
+  padding-left: 48px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  font-size: 12.5px !important;
+}
+
+.main-sider .ant-menu-inline .ant-menu-submenu-arrow {
+  color: var(--ems-sidebar-text) !important;
+}
+
+/* 折叠触发器 */
+.main-sider .ant-layout-sider-trigger {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: var(--ems-sidebar-text) !important;
+  transition: all var(--ems-transition-fast) !important;
+}
+
+.main-sider .ant-layout-sider-trigger:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--ems-sidebar-text-active) !important;
+}
+
+/* ── 顶部导航 ── */
+.main-header {
+  background: var(--ems-header-bg) !important;
+  padding: 0 var(--ems-space-lg) !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 64px !important;
+  line-height: 64px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+.main-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--ems-space-md);
+  margin-right: auto;
+}
+
+.main-header .header-breadcrumb {
+  font-size: 13px;
+  color: var(--ems-text-muted);
+}
+
+.main-header .header-breadcrumb span {
+  color: var(--ems-text-primary);
+  font-weight: 600;
+}
+
+.main-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--ems-space-lg);
+}
+
+.main-header .header-notification {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--ems-transition-fast);
+  color: var(--ems-text-secondary);
+}
+
+.main-header .header-notification:hover {
+  background: var(--ems-primary-bg);
+  color: var(--ems-primary);
+}
+
+.main-header .header-notification .notification-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: var(--ems-danger);
+  border-radius: 50%;
+  border: 2px solid var(--ems-header-bg);
+  animation: ems-pulse-glow 2s infinite;
+}
+
+.main-header .header-user {
+  display: flex;
+  align-items: center;
+  gap: var(--ems-space-sm);
+  padding: 4px 12px 4px 4px;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all var(--ems-transition-fast);
+}
+
+.main-header .header-user:hover {
+  background: var(--ems-primary-bg);
+}
+
+.main-header .header-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ems-gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.main-header .header-user-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ems-text-primary);
+}
+
+.main-header .header-time {
+  font-size: 12px;
+  color: var(--ems-text-muted);
+  font-family: var(--ems-font-mono);
+  font-weight: 400;
+}
+
+/* ── 内容区 ── */
+.main-content {
+  padding: var(--ems-space-lg) !important;
+  background: var(--ems-content-bg) !important;
+  min-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
