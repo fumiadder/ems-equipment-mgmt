@@ -16,7 +16,7 @@ import ScreenPage from './pages/Screen/index';
 import PermissionPage from './pages/Permission/index';
 
 function App() {
-  const isAuthenticated = !!localStorage.getItem('token');
+  const isAuthenticated = !!localStorage.getItem('ems_token');
 
   return (
     <Routes>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Dropdown } from 'antd';
 import {
   DashboardOutlined,
   AppstoreOutlined,
@@ -11,6 +11,8 @@ import {
   MonitorOutlined,
   BellOutlined,
   SettingOutlined,
+  LogoutOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import './MainLayout.css';
@@ -94,8 +96,25 @@ const pageNameMap: Record<string, string> = {
 function MainLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const [userName, setUserName] = useState('管理员');
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const userStr = localStorage.getItem('user');
+    if (userStr) {
+      try {
+        const user = JSON.parse(userStr);
+        setUserName(user.name || user.username || '管理员');
+      } catch { /* ignore */ }
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('ems_token');
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
 
   /* 实时时钟 */
   useEffect(() => {
@@ -181,10 +200,15 @@ function MainLayout() {
               <BellOutlined style={{ fontSize: 16 }} />
               <div className="notification-badge" />
             </div>
-            <div className="header-user">
-              <div className="header-user-avatar">管</div>
-              <span className="header-user-name">管理员</span>
-            </div>
+            <Dropdown menu={{ items: [
+              { key: 'profile', icon: <UserOutlined />, label: '个人中心' },
+              { key: 'logout', icon: <LogoutOutlined />, label: '退出登录', danger: true },
+            ], onClick: ({ key }) => { if (key === 'logout') handleLogout(); } }}>
+              <div className="header-user" style={{ cursor: 'pointer' }}>
+                <div className="header-user-avatar">{userName.charAt(0)}</div>
+                <span className="header-user-name">{userName}</span>
+              </div>
+            </Dropdown>
           </div>
         </Header>
         <Content className="main-content ems-content-area">

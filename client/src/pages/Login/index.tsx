@@ -19,7 +19,7 @@ function Login() {
     try {
       const res = await axios.post('/api/v1/auth/login', values);
       if (res.data.code === 0) {
-        localStorage.setItem('token', res.data.data.token);
+        localStorage.setItem('ems_token', res.data.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.data.user));
         message.success('登录成功');
         navigate('/dashboard');
