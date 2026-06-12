@@ -183,7 +183,7 @@ fi
 
 cat > "$NGINX_CONF" << 'NGINX_EOF'
 server {
-    listen 80;
+    listen 80 default_server;
     server_name _;
 
     # 前端静态文件
@@ -232,6 +232,14 @@ fi
 # 删除默认配置 (避免冲突)
 rm -f /etc/nginx/sites-enabled/default 2>/dev/null || true
 rm -f /etc/nginx/conf.d/default.conf 2>/dev/null || true
+
+# 确保 nginx.conf 包含 conf.d/*.conf (RHEL/CentOS 系统)
+if [ -d "/etc/nginx/conf.d" ] && ! grep -q "conf.d/\*\.conf" /etc/nginx/nginx.conf 2>/dev/null; then
+    sed -i "/include.*mime.types/a\\    include /etc/nginx/conf.d/*.conf;" /etc/nginx/nginx.conf 2>/dev/null || true
+fi
+
+# 确保 /root 目录对 nginx worker 可读 (前端文件在 /root 下)
+chmod 755 /root 2>/dev/null || true
 
 # 测试 Nginx 配置
 nginx -t 2>&1 && ok "Nginx 配置正确" || err "Nginx 配置有误，请检查"

@@ -1,17 +1,34 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const { sequelize } = require('./models');
 const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
-// 中间件
-app.use(cors());
+// 安全响应头
+app.use(helmet());
+
+// CORS 配置
+const corsOrigin = process.env.CORS_ORIGIN || '*';
+app.use(cors({
+  origin: corsOrigin === '*' ? true : corsOrigin.split(','),
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// 请求日志
+app.use(morgan('combined'));
+
+// 请求体解析
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 健康检查
+// 健康检查（公开接口）
 app.get('/api/health', (req, res) => {
   res.json({ code: 0, data: { status: 'ok', timestamp: new Date() }, message: '服务正常' });
 });

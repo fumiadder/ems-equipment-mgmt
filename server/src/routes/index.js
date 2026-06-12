@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 
-// 路由汇总，所有路由挂载到 /api/v1/
-router.use('/equipment', require('./equipment'));
-router.use('/work-orders', require('./workOrder'));
-router.use('/spare-parts', require('./sparePart'));
-router.use('/inspection', require('./inspection'));
-router.use('/organizations', require('./organization'));
-router.use('/users', require('./user'));
-router.use('/dashboard', require('./dashboard'));
+// 公开路由
+router.use('/auth', require('./auth'));
+
+// 需要认证的路由
+router.use('/equipment', auth, require('./equipment'));
+router.use('/work-orders', auth, require('./workOrder'));
+router.use('/spare-parts', auth, require('./sparePart'));
+router.use('/inspection', auth, require('./inspection'));
+router.use('/organizations', auth, require('./organization'));
+router.use('/users', auth, require('./user'));
+router.use('/dashboard', auth, require('./dashboard'));
 
 module.exports = router;

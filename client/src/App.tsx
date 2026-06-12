@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
+import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import EquipmentList from './pages/Equipment/index';
 import EquipmentDetail from './pages/Equipment/Detail';
@@ -15,9 +16,12 @@ import ScreenPage from './pages/Screen/index';
 import PermissionPage from './pages/Permission/index';
 
 function App() {
+  const isAuthenticated = !!localStorage.getItem('token');
+
   return (
     <Routes>
-      <Route path="/" element={<MainLayout />}>
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={isAuthenticated ? <MainLayout /> : <Navigate to="/login" replace />}>
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="equipment" element={<EquipmentList />} />

@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 
-// JWT 密钥
-const JWT_SECRET = 'ems-server-secret-key-2024';
+// JWT 密钥从环境变量读取，默认仅用于开发环境
+require('dotenv').config();
+const JWT_SECRET = process.env.JWT_SECRET || 'ems-server-secret-key-2024-dev-only';
 
 // JWT 认证中间件，从 header 提取 token 验证
 const auth = (req, res, next) => {
